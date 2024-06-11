@@ -1,16 +1,19 @@
 import '../TodoItem/TodoItem.css';
+import { FaCheck } from "react-icons/fa";
+import { FaTrash } from "react-icons/fa";
 
-function TodoItem(props) {
+
+function TodoItem({completed, text, onComplete, onDelete}) {
   return (
     <li className="TodoItem">
-      <span className={`Icon Icon-check ${props.completed && "Icon-check--active"}`}>
-        V
+      <span className={`Icon Icon-check ${completed && "Icon-check--active"}`} onClick={onComplete}>
+      <FaCheck />
       </span>
-      <p className={`TodoItem-p ${props.completed && "TodoItem-p--complete"}`}>
-        {props.text}
+      <p className={`TodoItem-p ${completed && "TodoItem-p--complete"}`}>
+        {text}
       </p>
-      <span className="Icon Icon-delete">
-        X
+      <span className="Icon Icon-delete" onClick={onDelete} >
+      <FaTrash />
       </span>
     </li>
   );
